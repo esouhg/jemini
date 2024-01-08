@@ -64,7 +64,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JeminiiTheme {
-                // A surface container using the 'background' color from the theme
                 Base()
 
             }
@@ -76,12 +75,9 @@ class MainActivity : ComponentActivity() {
 private fun Base() {
 
     val generativeModel = GenerativeModel(
-    // Use a model that's applicable for your use case (see "Implement basic use cases" below)
     modelName = "gemini-pro",
-    // Access your API key as a Build Configuration variable (see "Set up your API key" above)
     apiKey = "YOUR_API_KEY"
     )
-    //var response = ""
     val response = remember {
         mutableStateOf("")
     }
@@ -119,7 +115,6 @@ private fun Base() {
                         .padding(top = 10.dp, start = 10.dp, end = 10.dp)){
 
                         items(mutableListt.size){it ->
-                            //Text(text = responseList[it])
                             Text(text = "You", fontWeight = FontWeight.Bold)
                             Text(text = mutableListt.get(it))
                             Spacer(modifier = Modifier.height(10.dp))
@@ -129,9 +124,6 @@ private fun Base() {
                                 Spacer(modifier = Modifier.height(15.dp))
 
                             }
-                            //Text(text = "Your AI", fontWeight = FontWeight.Bold)
-                            //Text(text = responseList.get(it))
-                            //Spacer(modifier = Modifier.height(15.dp))
 
                         }
                         if(responseList.size > 0){
@@ -145,8 +137,6 @@ private fun Base() {
 
                     }
                     Row(modifier = Modifier.fillMaxSize(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.End){
-                        //val col = coor
-                       // val containerColor = FilledTextFieldTokens.ContainerColor.toColor()
                         OutlinedTextField(modifier = Modifier
                             .width(310.dp)
                             .fillMaxHeight(), value = text, onValueChange = {
@@ -158,7 +148,6 @@ private fun Base() {
 
 
                         IconButton(onClick = {
-                            //responseList.add("You\n"+currentText.value + "\n")
                             mutableListt.add(currentText.value)
                             var prompt = currentText.value
                             text =  ""
@@ -167,15 +156,6 @@ private fun Base() {
                             CoroutineScope(Dispatchers.Main).launch {  generativeModel.generateContentStream(prompt).collect(){chunk->
                                 responseList[responseList.size-1] = responseList[responseList.size-1] + chunk.text.toString()
                             }  }
-                            //responseList.add(response.value)
-                            //responseText.value = response
-                            //responseList.add("Your AI\n"+responseText.value + "\n")
-                            
-
-                            //println(prompt)
-                            //println(response)
-                            //responseText.value = response
-                            //responseList.add(responseText.value)
 
                         }) {
                             Icon(imageVector = Icons.Rounded.Send, contentDescription = "send")
