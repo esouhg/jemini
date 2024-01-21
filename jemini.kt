@@ -75,7 +75,7 @@ private fun Base() {
         // Use a model that's applicable for your use case (see "Implement basic use cases" below)
         modelName = "gemini-pro",
         // Access your API key as a Build Configuration variable (see "Set up your API key" above)
-        apiKey = "AIzaSyD4F1w3DpEMpDStCgFOpguDS-x4S_1ZJIE",
+        apiKey = "API_KEY",
 
         safetySettings = listOf(SafetySetting(HarmCategory.HARASSMENT, BlockThreshold.NONE), SafetySetting(HarmCategory.HATE_SPEECH, BlockThreshold.NONE), SafetySetting(HarmCategory.DANGEROUS_CONTENT, BlockThreshold.NONE), SafetySetting(HarmCategory.SEXUALLY_EXPLICIT, BlockThreshold.NONE))
     )
@@ -216,10 +216,6 @@ private fun Base() {
 @Composable
 fun JeminiPreview() {
     JeminiTheme {
-        Base()
-    }
-}
-    JeminiiTheme {
         Base()
     }
 }
