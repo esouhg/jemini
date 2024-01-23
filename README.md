@@ -8,3 +8,4 @@
 - Login feature using firebase
 - User should be able to open multiple chat windows
 - Should be able to do same conversation from multiple devices
+- Chat with pdf/other data
