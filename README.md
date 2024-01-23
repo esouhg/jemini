@@ -8,4 +8,5 @@
 - Login feature using firebase
 - User should be able to open multiple chat windows
 - Should be able to do same conversation from multiple devices
-- Chat with pdf/other data
+- Chat with pdf/other data using langchain
+- add clear button
